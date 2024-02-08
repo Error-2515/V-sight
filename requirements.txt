@@ -1,4 +1,4 @@
 opencv-python-headless
-Streamlit == 0.72
+
 
 
