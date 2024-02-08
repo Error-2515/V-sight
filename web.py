@@ -5,7 +5,7 @@ from PIL import Image
 import os
 
 st.set_page_config(
-    page_title="V-sigt",
+    page_title="V-sight",
     page_icon="v-sight.jpg",
     layout="centered",
     initial_sidebar_state="expanded"
