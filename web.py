@@ -7,16 +7,16 @@ import os
 st.set_page_config(
     page_title="V-sigt",
     page_icon="v-sight.jpg",
-    layout="wide",
+    layout="centered",
     initial_sidebar_state="expanded"
 )
 
-tab1, tab2, tab3, tab4 = st.tabs(["realtime detection","image detection","games with cv","try"])
+tab1, tab2, tab3 = st.tabs(["realtime detection","image detection","try"])
+
 
 with tab1:
     # Create an instance of the Camera class
     camera = Camera()
-
     # Streamlit UI
     st.title("real-Time detction")
     RTDdesc="""when a camera is able to point out different objects colour etc\nit is known as real time detecton below\nis how you will see the application of realtime detection:"""
@@ -25,21 +25,26 @@ with tab1:
         <style>
         div.stButton {text-align:center}
         </style>""", unsafe_allow_html=True)
+    button_placeholder = st.empty()
 
     # Button to start the camera
     col1, col2, col3 = st.columns(3)
-    with col2:
-        start_button = st.button("Start Camera", key="start_button", type="primary")
+    # with col2:
         
-        
+    start_button = button_placeholder.button("Start Camera", key="start_button", type="primary")
+    
 
     if start_button:
-        with col1:
-            start_button = None
+        button_placeholder.empty()
         frame_slot = st.empty()
         with col2:
-            st.subheader(":blue[Face]:red[Detection]")
-        with col3:
+            st.markdown(
+                """ <center><h1>Face Detection</h1></center>
+                
+
+                    """,unsafe_allow_html=True
+            )
+        with col2:
             stop_button=st.button("stop cam")
 
         # Continuously capture and display video
@@ -99,9 +104,4 @@ with tab2:
                 st.warning("File not found!!")
                 end_task = False
 
-with tab3:
-    with st.container():
-        st.header("Oops! This part is currently under construction")
-    col1, col2, col3 = st.columns(3, gap="medium")
-    with col2:
-        st.header(":no_entry::no_entry::no_entry::no_entry:")
+
